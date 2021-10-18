@@ -5,7 +5,14 @@
        <div class="wrapper">
            <h2>Add Admin</h2>
 
-                <br>  
+                <br><br>
+
+                <?php if(isset($_SESSION['add']))
+                  {
+                    echo ($_SESSION['add']);
+                    unset ($_SESSION['add']);
+                   }
+                ?>
 
            <form action="" method="POST">
 
@@ -56,7 +63,16 @@
          password = '$password'  
          ";
           
-
-        //   $res = mysqli_query($conn, $sql) or die(mysqli_error($conn, $sql));
+        
+          $res = mysqli_query($conn, $sql) or die(mysqli_error($conn, $sql));
+          if($res == TRUE){
+            //   echo "Data saved";
+            $_SESSION['add'] = "<div class='success'> Admin added successfully </div>";
+            header("location:".SITEURL.'admin/manage-admin.php');
+          } else {
+            //   echo "Data failed to be saved";
+            $_SESSION['add'] = "<div class='error'> Failed to add admin </div>";
+            header("location:".SITEURL.'admin/add-admin.php');
+          }
     } 
 ?>

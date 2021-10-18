@@ -7,6 +7,43 @@
            <h2>Manage Admin</h2>
             <br>
             
+            <?php 
+            if(isset($_SESSION['add']))
+            {
+                echo ($_SESSION['add']);
+                unset ($_SESSION['add']);
+            } 
+
+            if(isset($_SESSION['delete']))
+            {
+                echo ($_SESSION['delete']);
+                unset ($_SESSION['delete']);
+            }
+
+            if(isset($_SESSION['update']))
+            {
+                echo $_SESSION['update'];
+                unset ($_SESSION['update']);
+            }
+
+            if(isset($_SESSION['user_not_found']))
+            {
+                echo $_SESSION['user_not_found'];
+                unset ($_SESSION['user_not_found']);
+            }
+            if(isset($_SESSION['pwd_not_match'])){
+                echo $_SESSION['pwd_not_match'];
+                unset ($_SESSION['pwd_not_match']);
+            }
+            if(isset($_SESSION['change_pwd'])){
+                echo $_SESSION['change_pwd'];
+                unset ($_SESSION['change_pwd']);
+            }
+
+            ?>
+
+            <br><br>
+
             <a class="btn-primary" href="add-admin.php">Add admin</a>
             
             <br>
@@ -18,41 +55,43 @@
                     <th>Actions</th>
                 </tr>
 
-                <tr>
-                    <td>1.</td>
-                    <td>User</td>
-                    <td>user</td>
-                    <td>
-                        <a href="#" class="btn-secondary">Update Admin</a>
-                        <a href="#" class="btn-danger">Delete Admin</a>
-                    </td>
-                    <td></td>
+                <?php $sql = "SELECT * FROM admin";
+                      $res = mysqli_query($conn, $sql);
 
-                </tr>
+                      if($res == TRUE)
+                      {
+                          $count = mysqli_num_rows($res);
+                          $sn=1;
 
-                <tr>
-                    <td>2.</td>
-                    <td>User</td>
-                    <td>user</td>
-                    <td>
-                        <a href="#" class="btn-secondary">Update Admin</a>
-                        <a href="#" class="btn-danger">Delete Admin</a>
-                    </td>
-                    <td></td>
+                          if ($count>0)
+                          {
+                              while($rows=mysqli_fetch_assoc($res))
+                              {
+                                 $id = $rows['id'];
+                                 $full_name=$rows['full_name'];
+                                 $username=$rows['username'];
 
-                </tr>
+                                 ?>
+                                
+                                    <tr>
+                                    <td><?php echo $sn++ ?></td>
+                                    <td><?php echo $full_name; ?></td>
+                                    <td><?php echo $username; ?></td>
+                                        <td> 
+                                            <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
+                                            <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-secondary">Update Admin</a>
+                                            <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
+                                        </td>
+                                    </tr>
 
-                <tr>
-                    <td>3.</td>
-                    <td>User</td>
-                    <td>user</td>
-                    <td>
-                        <a href="#" class="btn-secondary">Update Admin</a>
-                        <a href="#" class="btn-danger">Delete Admin</a>
-                    </td>
-                    <td></td>
+                                    <?php 
+                              }
+                          } else {
+                          
+                        }
+                      } 
 
-                </tr>
+                ?>
             </table>
 
         </div>

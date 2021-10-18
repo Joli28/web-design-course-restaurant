@@ -72,6 +72,7 @@ table tr td{
     font-weight: bold;
     background-color: #1e90ff;
     font-size: 12px;
+
 }
 .btn-primary:hover{
     background-color: #70a1ff;
@@ -84,9 +85,18 @@ table tr td{
     font-weight: bold;
     background-color: #ff4757;
     font-size: 12px;
+
 }
 .btn-danger:hover{
     background-color: #ff6b81;
+}
+.success{
+    color: #2ed573;
+    font-size: bold;
+}
+.error{
+    color: #e90f21;
+    font-size: bold;
 }
 
 .btn-secondary{
@@ -96,6 +106,7 @@ table tr td{
     font-weight: bold;
     background-color: #2ed573;
     font-size: 12px;
+
 }
 .btn-secondary:hover{
     background-color: #7bed9f;
