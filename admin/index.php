@@ -14,17 +14,17 @@
 
             <div class="col-4 text-center">
                 <h1>5</h1>
-                Categories
+                Foods
             </div>
 
             <div class="col-4 text-center">
                 <h1>5</h1>
-                Categories
+                Total Orders
             </div>
 
             <div class="col-4 text-center">
                 <h1>5</h1>
-                Categories
+                Reveneue Generated
             </div>
 
             <div class="clearfix"></div>

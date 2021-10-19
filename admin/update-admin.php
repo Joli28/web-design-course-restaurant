@@ -45,7 +45,7 @@
                     <tr>
                         <td colspan="2"> 
                             <input type="hidden" name="id" value="<?php echo $id; ?>">
-                            <input type="submit" name="submit" value="Add Admin" class="btn-secondary" >
+                            <input type="submit" name="submit" value="Update Admin" class="btn-secondary" style="cursor: pointer;">
                         </td>
                     </tr>
                 </table>
@@ -69,13 +69,13 @@
 
                  if($res==true)
                  {
-                        $_SESSION['update']= "<div class='success'> Admin Updated Successfully </div>";
+                        $_SESSION['update'] = "<div class='success'> Admin Updated Successfully </div>";
                         header('location:'.SITEURL.'admin/manage-admin.php');
                  } else {
-                        $_SESSION['update']= "<div class='error'> Failed to Update Admin  </div>";
+                        $_SESSION['update'] = "<div class='error'> Failed to Update Admin  </div>";
                         header('location:'.SITEURL.'admin/manage-admin.php');
-                    }
-        }
+                    } 
+            }
     ?>
 
 

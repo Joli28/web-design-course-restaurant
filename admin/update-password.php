@@ -69,6 +69,10 @@
                          WHERE id=$id ";
                          $res2 = mysqli_query($conn, $sql2);
 
+                         if($current_password == $new_password){
+                             die ();
+                         }
+
                          if($res==true)
                          {
                                 $_SESSION['change_pwd']= "<div class='success'> Password Updated Successfully </div>";
@@ -85,7 +89,7 @@
                 } else {
                     $_SESSION['user_not_found'] = "<div class='error'> User not found </div>";
                     header('location:'.SITEURL.'admin/manage-admin.php');
-                }
+                } 
          } 
     }
 ?>

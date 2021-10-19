@@ -39,6 +39,11 @@
                 echo $_SESSION['change_pwd'];
                 unset ($_SESSION['change_pwd']);
             }
+            if(isset($_SESSION['match']))
+            {
+                echo $_SESSION['match'];
+                unset ($_SESSION['match']);
+            }
 
             ?>
 

@@ -5,11 +5,20 @@
           <div class="wrapper">
               <h2>Manage Category</h2>
 
-              <br>
+              <br> <br>
+
+              <?php 
+            if(isset($_SESSION['add']))
+            {
+                echo $_SESSION['add'];
+                unset ($_SESSION['add']);
+            }
+        ?>
+            <br> <br> 
             
-            <a class="btn-primary" href="">Add Category</a>
+            <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-category.php">Add Category</a>
             
-            <br>
+ 
             <table class="tbl-full">
                 <tr>
                     <th>S.N.</th>
