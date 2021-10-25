@@ -70,7 +70,7 @@
                          $res2 = mysqli_query($conn, $sql2);
 
                          if($current_password == $new_password){
-                             die ();
+                             die ("New Password match with the old one");
                          }
 
                          if($res==true)
